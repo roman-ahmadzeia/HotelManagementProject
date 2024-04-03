@@ -1,6 +1,14 @@
 package com.example.HotelManagementProject.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Bookings")
 public class Booking {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long customerid;
     private long roomid;
