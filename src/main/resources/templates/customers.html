@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Management System</title>
-    <link rel="stylesheet" href="/static/customers.css">
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/customers.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <div class = "header">
@@ -14,15 +14,22 @@
 </div>
 <div class="container">
     <h1>Add Customer</h1>
-    <form id="customerForm">
+    <form method="post" action="#" th:action="@{/addCustomer}" th:object="${newCustomer}">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+        <input type="text" id="name" name="name" th:field="*{name}" required><br>
+
         <label for="phoneNumber">Phone Number:</label>
-        <input type="text" id="phoneNumber" name="phoneNumber" required>
+        <input type="text" id="phoneNumber" name="phoneNumber" th:field="*{phoneNumber}" required><br>
+
         <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required>
-        <input type="submit" value="Add Customer">
+        <input type="email" id="email" name="email" th:field="*{email}" required><br>
+
+        <button type="submit">Add Customer</button>
     </form>
+
+
+
+
     <h2>Customer List</h2>
     <table id="customerTable">
         <thead>
@@ -33,6 +40,11 @@
         </tr>
         </thead>
         <tbody id="customerTableBody">
+        <tr th:each="customer : ${listCustomers}">
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.phoneNumber}"></td>
+            <td th:text="${customer.email}"></td>
+        </tr>
         </tbody>
     </table>
 </div>

@@ -17,11 +17,18 @@ public class CustomerService {
         this.customerRepository = customerRepository;
     }
 
-
     public List<Customer> getCustomers()
     {
         return customerRepository.findAll();
     }
+
+    public void addCustomer(Customer customer)
+    {
+        customerRepository.save(customer);
+    }
+
+
+
 }
 
 
