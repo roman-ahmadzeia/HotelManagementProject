@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/service")
+@RequestMapping(path = "api/services")
 public class ServicesController {
     private final ServicesService service;
 

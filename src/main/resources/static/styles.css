@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+body
+{
+    padding: 0; margin: 0;
+}
+  .header
+  {
+      padding: 0 3% 0 3%;
+      margin: 0;
+    display: flex;
+    justify-content: space-between;
+      background-color: black;
+  }
+  .header h1
+  {
+      color: #b4a044;
+      font-family: "Playfair Display";
+      font-size: 2rem;
+  }
+
+  .hero
+  {
+      margin-top: -2%; padding: 0;
+      background-image: url("https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/65046bf150d1abb7e5911702_x-65046bcfdc4f0.webp");
+      background-size: cover;
+      height: 500px;
+  }
+  .hero h1
+  {
+      padding-top: 30%; padding-left: 2%;
+      justify-content: center;
+      text-align: left;
+      color: #b4a044;
+      font-family: "Playfair Display";
+  }
+
+  .dashboard
+  {
+      font-family: "Playfair Display";
+      color: black;
+      justify-content: center;
+      text-align: center;
+  }
+  .dashboard h1
+  {
+    font-size: 3rem;
+  }
+  .grid
+  {
+      grid-column: auto;
+      grid-row: 1;
+      display: inline-grid;
+      grid-gap: 10%;
+  }
+  .grid div
+  {
+      font-size: 1.5rem;
+      border-style: solid;
+      border-width: 2px;
+      transition: all 0.5s;
+  }
+  .grid div:hover
+  {
+      background-color: black;
+      color: white;
+      transform: scale(1.1);
+  }
+  .grid div h3
+  {
+      margin: 10%;
+  }
