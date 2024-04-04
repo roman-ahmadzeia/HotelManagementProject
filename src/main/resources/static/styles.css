@@ -12,12 +12,15 @@ body
     justify-content: space-between;
       background-color: black;
   }
-  .header h1
+  .header h1, .header a
   {
+      text-align: center;
       color: #b4a044;
       font-family: "Playfair Display";
       font-size: 2rem;
+      text-decoration: none;
   }
+
 
   .hero
   {

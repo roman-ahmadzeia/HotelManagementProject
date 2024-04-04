@@ -16,7 +16,7 @@ public class CustomerController {
     {
         this.customerService = customerService;
     }
-    @GetMapping("/")
+    @GetMapping("/customers")
     public String getCustomerPage(Model model)
     {
         model.addAttribute("listCustomers", customerService.getCustomers());
@@ -27,14 +27,14 @@ public class CustomerController {
     @PostMapping("/addCustomer")
     public String addCustomer(@ModelAttribute("newCustomer") Customer newCustomer) {
         customerService.addCustomer(newCustomer);
-        return "redirect:/";
+        return "redirect:/customers";
     }
 
-
-
-
-
-
+    @GetMapping("/")
+    public String getHomePage()
+    {
+        return "dashboard.html";
+    }
 //    public List<Customer> getCustomers()
 //    {
 //        return customerService.getCustomers();
