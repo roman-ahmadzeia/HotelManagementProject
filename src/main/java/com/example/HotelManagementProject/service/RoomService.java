@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import com.example.HotelManagementProject.repository.RoomRepository;
 
-import java.util.*;
+import java.util.List;
 @Service
 public class RoomService {
-
     private final RoomRepository roomRepository;
 
     @Autowired
@@ -25,5 +24,7 @@ public class RoomService {
     }
 
 
-
+    public void addRoom(Room newRoom) {
+        roomRepository.save(newRoom);
+    }
 }

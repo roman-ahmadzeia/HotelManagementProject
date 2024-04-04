@@ -1,10 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+    <link rel="stylesheet" href="/customers.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+<div class="header">
+    <a href="/">5 Star Hotel Booking System</a>
+    <a href="/">Dashboard</a>
+</div>
+<div class="container">
+    <h1>Add Room</h1>
+    <form method="post" action="#" th:action="@{/addRoom}" th:object="${newRoom}">
+        <label for="roomNumber">Room Number:</label>
+        <input type="text" id="roomNumber" name="roomNumber" th:field="*{roomNumber}" required><br>
+
+        <label for="roomType">Room Type:</label>
+        <select id="roomType" name="roomType" th:field="*{type}" required>
+            <option value="Single Room">Single Room</option>
+            <option value="Suite">Suite</option>
+            <option value="Deluxe">Deluxe</option>
+        </select>
+        <br>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" th:field="*{price}" required><br>
+        <button type="submit">Add Room</button>
+    </form>
+
+    <h2>Room List</h2>
+    <table id="roomTable">
+        <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Room Type</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody id="roomTableBody">
+        <tr th:each="room : ${listRooms}">
+            <td th:text="${room.roomNumber}"></td>
+            <td th:text="${room.type}"></td>
+            <td th:text="${room.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>
