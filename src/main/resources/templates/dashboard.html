@@ -28,7 +28,7 @@
     <div class = "grid">
         <div><h3>Number of bookings</h3> <p id="display-logistics-1" th:if="${bookingCount != null}" th:text="${bookingCount}"></p></div>
         <div><h3>Revenue</h3> <p id="display-logistics-2" th:if="${revenue != null}" th:text="${revenue}"></p></div>
-        <div><h3>Occupancy Rate</h3><p id="display-logistics-3" th:if="${occupancyRate != null}" th:text="${occupancyRate}"></p></div>
+        <div><h3>Occupancy Rate</h3><p id="display-logistics-3" th:if="${occupancyRate != null}" th:text="${occupancyRate}+'%'"></p></div>
     </div>
 </div>
 
