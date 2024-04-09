@@ -1,6 +1,7 @@
 package com.example.HotelManagementProject.controller;
 
 import com.example.HotelManagementProject.model.Customer;
+import com.example.HotelManagementProject.service.BookingService;
 import com.example.HotelManagementProject.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,10 +12,12 @@ import java.util.List;
 @Controller
 public class CustomerController {
     private final CustomerService customerService;
+    private final BookingService bookingService;
     @Autowired
-    public CustomerController(CustomerService customerService)
+    public CustomerController(CustomerService customerService, BookingService bookingService)
     {
         this.customerService = customerService;
+        this.bookingService = bookingService;
     }
     @GetMapping("/customers")
     public String getCustomerPage(Model model)
@@ -31,8 +34,15 @@ public class CustomerController {
     }
 
     @GetMapping("/")
-    public String getHomePage()
+    public String getHomePage(Model model)
     {
+        long bookingCount = bookingService.getBookings().size();
+        double totalBookingPrice = bookingService.getTotalBookingsPrice();
+        double occupancyRate = bookingService.getOccupancyRate();
+        model.addAttribute("bookingCount", bookingCount);
+        model.addAttribute("revenue", totalBookingPrice);
+        model.addAttribute("occupancyRate", occupancyRate);
+
         return "dashboard.html";
     }
 //    public List<Customer> getCustomers()

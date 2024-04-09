@@ -23,6 +23,11 @@ public class RoomService {
         return roomRepository.findAll();
     }
 
+    public Room getRoomById(Long roomId) {
+        return roomRepository.findById(roomId)
+                .orElseThrow(() -> new RuntimeException("Room not found"));
+    }
+
 
     public void addRoom(Room newRoom) {
         roomRepository.save(newRoom);

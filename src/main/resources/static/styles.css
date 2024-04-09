@@ -58,6 +58,10 @@ body
       justify-content: center;
       text-align: center;
   }
+    #display-logistics-1
+    {
+        display: none;
+    }
   .dashboard h1
   {
     font-size: 3rem;
@@ -125,3 +129,4 @@ body
       justify-content: center;
       text-align: center;
   }
+
