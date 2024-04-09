@@ -1,3 +1,8 @@
+img
+{
+    width: 500px; height: auto;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -12,6 +17,20 @@ body {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.title
+{
+    justify-content: center; text-align: center;
+}
+
+.room
+{
+    margin-top: 5%;
+}
+.room div
+{
+    margin-top: 2%;
+    font-size: 1.5rem;
 }
 h1 {
     text-align: center;
@@ -56,3 +75,5 @@ th {
     background-color: #b4a044;
     color: #fff;
 }
+
+
