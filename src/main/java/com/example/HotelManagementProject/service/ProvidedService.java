@@ -27,6 +27,7 @@ public class ProvidedService {
         providedServiceRepository.save(service);
     }
 
+
     public double getTotalPrice() {
         List<com.example.HotelManagementProject.model.ProvidedService> services = providedServiceRepository.findAll();
         double totalPrice = 0;

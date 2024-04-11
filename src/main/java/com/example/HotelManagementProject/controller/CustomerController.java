@@ -37,7 +37,7 @@ public class CustomerController {
     public String getHomePage(Model model)
     {
         long bookingCount = bookingService.getBookings().size();
-        double totalBookingPrice = bookingService.getTotalBookingsPrice();
+        double totalBookingPrice = bookingService.totalRevenue();
         double occupancyRate = bookingService.getOccupancyRate();
         model.addAttribute("bookingCount", bookingCount);
         model.addAttribute("revenue", totalBookingPrice);

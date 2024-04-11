@@ -1,10 +1,12 @@
 package com.example.HotelManagementProject.service;
 
 import com.example.HotelManagementProject.model.Booking;
+import com.example.HotelManagementProject.model.Room;
 import com.example.HotelManagementProject.repository.BookingRepository;
+import com.example.HotelManagementProject.repository.RoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.time.temporal.ChronoUnit;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -36,14 +38,30 @@ public class BookingService {
         return newBooking;
     }
 
-    public double getTotalBookingsPrice() {
-        List<Booking> bookings = bookingRepository.findAll();
-        double totalRoomPrice = bookings.stream()
-                .mapToDouble(booking -> roomService.getRoomById(booking.getId()).getPrice())
-                .sum();
-        double totalProvidedServicePrice = providedService.getTotalPrice();
-        return (totalRoomPrice + totalProvidedServicePrice);
+    public double roomPriceTotal(Booking booking)
+    {
+        LocalDate start_date = booking.getStartDate();
+        LocalDate end_date = booking.getEndDate();
+        long differenceInDays = ChronoUnit.DAYS.between(start_date, end_date);
+        double room_cost = roomService.getRoomById(booking.getId()).getPrice() * differenceInDays;
+
+        return room_cost;
     }
+
+    public double totalRevenue()
+    {
+        double service_cost = providedService.getTotalPrice(); // sum of all prices in services database
+        double room_cost = 0; // total sum of each bookings room price * days reserverd
+        List<Booking> bookings = bookingRepository.findAll();
+        for (Booking i: bookings)
+        {
+            room_cost += roomPriceTotal(i);
+        }
+
+        return service_cost + room_cost;
+
+    }
+
 
     public double getOccupancyRate() {
         int bookings = bookingRepository.findAll().size();

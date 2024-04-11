@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "Services")
 public class ProvidedService {
-
     @Id
     private String id; // should be the booking id
     private String serviceName;

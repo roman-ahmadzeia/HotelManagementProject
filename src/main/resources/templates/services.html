@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Services</title>
+  <link rel="stylesheet" href="/tableForms.css">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="header">
+  <a href="/">5 Star Hotel Booking System</a>
+  <a href="/">Dashboard</a>
+</div>
+
+<div class="container">
+<h1>Add Service</h1>
+<form method="post" action="#" th:action="@{/addService}" th:object="${newService}">
+  <label for="serviceName">Service Name:</label>
+  <input type="text" id="serviceName" name="serviceName" th:field="*{serviceName}" required><br>
+
+  <label for="servicePrice">Service Price</label>
+  <input type="text" id="servicePrice" name="servicePrice" th:field="*{servicePrice}" required><br>
+  <button class = "add-room-button" type="submit">Add Service</button>
+</form>
+
+<h2 class = "title">Room List</h2>
+<div class="room-grid" id="roomGrid">
+
+  <div class="room-container" th:each="room : ${listRooms}">
+    <div class="room">
+      <div class="room-number" th:text="'Room Number: ' + ${room.roomNumber}"></div>
+      <div class="room-type" th:text="'Room Type: ' + ${room.type}"></div>
+      <div class="room-price" th:text="'Price Per Night: ' + ${room.price}"></div>
+
+      <div class="room-type">
+        <div>Services Provided: Breakfast, Lunch, Spa, VIP Lounge </div>
+      </div>
+
+
+
+
+      <div class="room-image"><img th:src="@{${room.type.toLowerCase() + '.jpeg'}}" alt="Room Image"/></div>
+      <form method="post" action="#" th:action="@{/deleteRoom}" th:object="${room}">
+        <input type="hidden" name="id" th:value="${room.id}" />
+        <button class ="delete-button" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!--    <table id="roomTable">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>Room Number</th>-->
+<!--            <th>Room Type</th>-->
+<!--            <th>Price</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody id="roomTableBody">-->
+<!--        <tr th:each="room : ${listRooms}">-->
+<!--            <td th:text="${room.roomNumber}"></td>-->
+<!--            <td th:text="${room.type}"></td>-->
+<!--            <td th:text="${room.price}"></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+</div>
+
+
+</body>
+</html>
