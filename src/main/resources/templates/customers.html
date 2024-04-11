@@ -31,7 +31,12 @@
         <input type="email" id="email" name="email" th:field="*{email}" required><br>
 
         <button type="submit">Add Customer</button>
+        <div th:if="${error}" class="alert alert-danger">
+            <p th:text="${error}"></p>
+        </div>
+
     </form>
+
 
     <h2>Customer List</h2>
     <table id="customerTable">

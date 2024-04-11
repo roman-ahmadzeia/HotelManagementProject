@@ -3,6 +3,7 @@ package com.example.HotelManagementProject.controller;
 import com.example.HotelManagementProject.model.Customer;
 import com.example.HotelManagementProject.service.BookingService;
 import com.example.HotelManagementProject.service.CustomerService;
+import org.apache.tomcat.util.modeler.BaseAttributeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +29,12 @@ public class CustomerController {
     }
 
     @PostMapping("/addCustomer")
-    public String addCustomer(@ModelAttribute("newCustomer") Customer newCustomer) {
+    public String addCustomer(@ModelAttribute("newCustomer") Customer newCustomer, Model model) {
+        if (customerService.checkName(newCustomer)) {
+            model.addAttribute("error", "Customer with this contact info already exists.");
+            return "customers"; // Return to the customers page with an error message
+        }
+
         customerService.addCustomer(newCustomer);
         return "redirect:/customers";
     }
