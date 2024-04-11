@@ -21,9 +21,11 @@
         <label for="customerId">Customer:</label>
         <select id="customerId" name="customerId">
             <option th:each="customer : ${customers}" th:value="${customer.id}">
-                <span th:text="${customer.name}"></span>
+                <span>Name: <span th:text="${customer.name}"></span>;</span>
+                <span>Number: <span th:text="${customer.phoneNumber}"></span>;</span>
+                <span>Email: <span th:text="${customer.email}"></span></span>
             </option>
-        </select><br>
+        </select>
 
         <label for="roomId">Room:</label>
         <select id="roomId" name="roomId">
