@@ -9,7 +9,7 @@ public class ProvidedService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long id; // should be the booking id
     private String serviceName;
     private double price;
 

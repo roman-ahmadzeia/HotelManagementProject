@@ -1,10 +1,9 @@
 package com.example.HotelManagementProject.controller;
 
 import com.example.HotelManagementProject.model.ProvidedService;
+import com.example.HotelManagementProject.model.Room;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +20,11 @@ public class ProvidedServiceController {
     @GetMapping
     public List<ProvidedService> getServices() {
         return service.getServices();
+    }
+
+    @PostMapping("/addService")
+    public void addService(@ModelAttribute("newService") ProvidedService serv)
+    {
+        service.addService(serv);
     }
 }

@@ -1,8 +1,6 @@
 package com.example.HotelManagementProject.service;
 
 import com.example.HotelManagementProject.model.Booking;
-import com.example.HotelManagementProject.model.Customer;
-import com.example.HotelManagementProject.model.Room;
 import com.example.HotelManagementProject.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,15 +26,16 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
-    public void addBooking(Booking newBooking)
+    public Booking addBooking(Booking newBooking)
     {
         bookingRepository.save(newBooking);
+        return newBooking;
     }
 
     public double getTotalBookingsPrice() {
         List<Booking> bookings = bookingRepository.findAll();
         return bookings.stream()
-                .mapToDouble(booking -> roomService.getRoomById(booking.getRoomid()).getPrice())
+                .mapToDouble(booking -> roomService.getRoomById(booking.getId()).getPrice())
                 .sum();
     }
 

@@ -32,4 +32,9 @@ public class RoomService {
     public void addRoom(Room newRoom) {
         roomRepository.save(newRoom);
     }
+
+    public void deleteRoom(Room newRoom)
+    {
+        roomRepository.delete(newRoom);
+    }
 }

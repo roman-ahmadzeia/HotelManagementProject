@@ -30,4 +30,12 @@ public class RoomController {
         roomService.addRoom(newRoom);
         return "redirect:/rooms";
     }
+
+    @PostMapping("/deleteRoom")
+    public String deleteRoom(@ModelAttribute("deleteRoom") Room newRoom)
+    {
+        roomService.deleteRoom(newRoom);
+        return "redirect:/rooms";
+    }
+
 }

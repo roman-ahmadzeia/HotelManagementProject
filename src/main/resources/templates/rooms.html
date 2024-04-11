@@ -19,37 +19,45 @@
     <a href="/">Dashboard</a>
 </div>
 <div class="container">
-<!--    <h1>Add Room</h1>-->
-<!--    <form method="post" action="#" th:action="@{/addRoom}" th:object="${newRoom}">-->
-<!--        <label for="roomNumber">Room Number:</label>-->
-<!--        <input type="text" id="roomNumber" name="roomNumber" th:field="*{roomNumber}" required><br>-->
+    <h1>Add Room</h1>
+    <form method="post" action="#" th:action="@{/addRoom}" th:object="${newRoom}">
+        <label for="roomNumber">Room Number:</label>
+        <input type="text" id="roomNumber" name="roomNumber" th:field="*{roomNumber}" required><br>
 
-<!--        <label for="roomType">Room Type:</label>-->
-<!--        <select id="roomType" name="roomType" th:field="*{type}" required>-->
-<!--            <option value="Single Room">Single Room</option>-->
-<!--            <option value="Suite">Suite</option>-->
-<!--            <option value="Deluxe">Deluxe</option>-->
-<!--        </select>-->
-<!--        <br>-->
+        <label for="roomType">Room Type:</label>
+        <select id="roomType" name="roomType" th:field="*{type}" required>
+            <option value="Standard">Standard</option>
+            <option value="Suite">Suite</option>
+            <option value="Deluxe">Deluxe</option>
+        </select>
+        <br>
 
-<!--        <label for="price">Price:</label>-->
-<!--        <input type="text" id="price" name="price" th:field="*{price}" required><br>-->
-<!--        <button type="submit">Add Room</button>-->
-<!--    </form>-->
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" th:field="*{price}" required><br>
+        <button class = "add-room-button" type="submit">Add Room</button>
+    </form>
 
     <h2 class = "title">Room List</h2>
     <div class="room-grid" id="roomGrid">
-<!--        <div class="room-header">-->
-<!--            <div>Room Number</div>-->
-<!--            <div>Room Type</div>-->
-<!--            <div>Price</div>-->
-<!--        </div>-->
+
         <div class="room-container" th:each="room : ${listRooms}">
             <div class="room">
                 <div class="room-number" th:text="'Room Number: ' + ${room.roomNumber}"></div>
                 <div class="room-type" th:text="'Room Type: ' + ${room.type}"></div>
                 <div class="room-price" th:text="'Price Per Night: ' + ${room.price}"></div>
+
+                <div class="room-type">
+                    <div>Services Provided: Breakfast, Dinner, Pool, Casino, Spa, VIP Lounge </div>
+                </div>
+
+
+
+
                 <div class="room-image"><img th:src="@{${room.type.toLowerCase() + '.jpeg'}}" alt="Room Image"/></div>
+                <form method="post" action="#" th:action="@{/deleteRoom}" th:object="${room}">
+                    <input type="hidden" name="id" th:value="${room.id}" />
+                    <button class ="delete-button" type="submit">Delete</button>
+                </form>
             </div>
         </div>
     </div>

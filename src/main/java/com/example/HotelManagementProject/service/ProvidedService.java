@@ -19,4 +19,9 @@ public class ProvidedService {
     public List<com.example.HotelManagementProject.model.ProvidedService> getServices() {
         return providedServiceRepository.findAll();
     }
+
+    public void addService(com.example.HotelManagementProject.model.ProvidedService service)
+    {
+        providedServiceRepository.save(service);
+    }
 }
