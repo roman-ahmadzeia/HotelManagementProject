@@ -43,7 +43,8 @@ public class BookingService {
         LocalDate start_date = booking.getStartDate();
         LocalDate end_date = booking.getEndDate();
         long differenceInDays = ChronoUnit.DAYS.between(start_date, end_date);
-        double room_cost = roomService.getRoomById(booking.getId()).getPrice() * differenceInDays;
+        double room_cost = roomService.getRoomById(booking.getRoomid()).getPrice() * differenceInDays;
+        System.out.println("room: " + roomService.getRoomById(booking.getId()).getPrice());
 
         return room_cost;
     }

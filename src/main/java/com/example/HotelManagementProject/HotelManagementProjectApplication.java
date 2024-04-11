@@ -23,7 +23,7 @@ public class HotelManagementProjectApplication {
 					new Room(101, "Standard", 100),
 					new Room(102, "Standard", 100),
 					new Room(201, "Suite", 500),
-					new Room(202, "Suite", 500),
+					new Room(202, "Suite", 700),
 					new Room(901, "Deluxe", 1500),
 					new Room(1001, "Deluxe", 1500)
 			};
