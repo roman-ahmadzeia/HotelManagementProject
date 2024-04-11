@@ -5,6 +5,7 @@ import com.example.HotelManagementProject.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -13,11 +14,14 @@ public class BookingService {
 
     private final RoomService roomService;
 
+    private final ProvidedService providedService;
+
     @Autowired
-    public BookingService(BookingRepository bookingRepository, RoomService roomService)
+    public BookingService(BookingRepository bookingRepository, RoomService roomService, ProvidedService providedService)
     {
         this.bookingRepository = bookingRepository;
         this.roomService = roomService;
+        this.providedService = providedService;
     }
 
 
@@ -34,9 +38,11 @@ public class BookingService {
 
     public double getTotalBookingsPrice() {
         List<Booking> bookings = bookingRepository.findAll();
-        return bookings.stream()
+        double totalRoomPrice = bookings.stream()
                 .mapToDouble(booking -> roomService.getRoomById(booking.getId()).getPrice())
                 .sum();
+        double totalProvidedServicePrice = providedService.getTotalPrice();
+        return (totalRoomPrice + totalProvidedServicePrice);
     }
 
     public double getOccupancyRate() {
@@ -47,8 +53,34 @@ public class BookingService {
             return 0.0;
         }
 
-        return (double) bookings / rooms * 100;
+        double occupancyRate = (double) bookings / rooms * 100;
+        return Double.parseDouble(String.format("%.1f", occupancyRate));
     }
+
+    public boolean availabilityCheck(Booking currentBooking) {
+        LocalDate start_date = currentBooking.getStartDate();
+        LocalDate end_date = currentBooking.getEndDate();
+        long room_id = currentBooking.getRoomid();
+
+        // Get all bookings for the room
+        List<Booking> roomBookings = bookingRepository.findByRoomId(room_id);
+
+        // Check for overlapping bookings
+        for (Booking booking : roomBookings) {
+            LocalDate booking_start = booking.getStartDate();
+            LocalDate booking_end = booking.getEndDate();
+
+            if (start_date.isBefore(booking_end) && end_date.isAfter(booking_start)) {
+                // There is an overlapping booking
+                return false;
+            }
+        }
+
+        // No overlapping bookings found, room is available
+        return true;
+    }
+
+
 
 
 }

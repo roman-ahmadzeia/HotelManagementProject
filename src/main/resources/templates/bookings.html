@@ -33,15 +33,14 @@
         </select><br>
 
         <label>Services:</label><br>
-        <input type="checkbox" id="service1" name="services" value="Breakfast">
-        <label for="service1">Breakfast</label><br>
-        <input type="checkbox" id="service2" name="services" value="Lunch">
-        <label for="service2">Lunch</label><br>
-        <input type="checkbox" id="service3" name="services" value="VIP Lounge">
-        <label for="service3">VIP Lounge</label><br>
-        <input type="checkbox" id="service4" name="services" value="SPA">
-        <label for="service4">SPA</label><br>
-
+        <input type="checkbox" id="service1" name="services" value="Breakfast" data-price = 20>
+        <label for="service1">Breakfast: $20 CAD</label><br>
+        <input type="checkbox" id="service2" name="services" value="Lunch" data-price = 35>
+        <label for="service2">Lunch: $35 CAD</label><br>
+        <input type="checkbox" id="service3" name="services" value="VIP Lounge" data-price = 100>
+        <label for="service3">VIP Lounge: $100 CAD</label><br>
+        <input type="checkbox" id="service4" name="services" value="SPA" data-price = 80>
+        <label for="service4">SPA: $80 CAD</label><br>
 
 
         <label for="startDate">Start Date:</label>
@@ -57,6 +56,9 @@
 <!--        </div>-->
 
         <button type="submit">Book Room</button>
+        <div th:if="${error}" class="alert alert-danger">
+            <p th:text="${error}"></p>
+        </div>
     </form>
 
 </div>

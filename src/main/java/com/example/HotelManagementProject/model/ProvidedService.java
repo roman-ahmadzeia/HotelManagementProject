@@ -8,15 +8,14 @@ import jakarta.persistence.*;
 public class ProvidedService {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id; // should be the booking id
+    private String id; // should be the booking id
     private String serviceName;
     private double price;
 
     public ProvidedService() {
     }
 
-    public ProvidedService(long id, String serviceName, double price) {
+    public ProvidedService(String id, String serviceName, double price) {
         this.id = id;
         this.serviceName = serviceName;
         this.price = price;
@@ -27,11 +26,11 @@ public class ProvidedService {
         this.price = price;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

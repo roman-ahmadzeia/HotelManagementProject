@@ -3,6 +3,9 @@ package com.example.HotelManagementProject.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "Bookings")
 public class Booking {
@@ -12,13 +15,13 @@ public class Booking {
     private long id;
     private long customerid;
     private long roomid;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     public Booking() {
     }
 
-    public Booking(long id, long customerid, long roomid, String startDate, String endDate) {
+    public Booking(long id, long customerid, long roomid, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.customerid = customerid;
         this.roomid = roomid;
@@ -26,7 +29,7 @@ public class Booking {
         this.endDate = endDate;
     }
 
-    public Booking(long customerid, long roomid, String startDate, String endDate) {
+    public Booking(long customerid, long roomid, LocalDate startDate, LocalDate endDate) {
         this.customerid = customerid;
         this.roomid = roomid;
         this.startDate = startDate;
@@ -57,19 +60,19 @@ public class Booking {
         this.roomid = roomid;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

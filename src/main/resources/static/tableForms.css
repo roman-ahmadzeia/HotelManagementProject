@@ -90,4 +90,9 @@ th {
     cursor: pointer;
 }
 
-
+.alert
+{
+    text-align: center; justify-content: center;
+    color: red;  font-family: "Playfair Display";
+    font-size: 1.5rem;
+}

@@ -13,6 +13,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -48,35 +52,49 @@ public class BookingController {
     public String addBooking(@ModelAttribute("newBooking") Booking newBooking,
                              @RequestParam("customerId") Long customerId,
                              @RequestParam("roomId") Long roomId,
-                             @RequestParam(value = "services", required = false) List<String> services) {
+                             @RequestParam(value = "services", required = false) List<String> services,
+                             @RequestParam("startDate") String startDateStr,
+                             @RequestParam("endDate") String endDateStr,
+                             Model model){
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate startDate = LocalDate.parse(startDateStr, formatter);
+        LocalDate endDate = LocalDate.parse(endDateStr, formatter);
+
+        newBooking.setStartDate(startDate);
+        newBooking.setEndDate(endDate);
+
         newBooking.setCustomerid(customerId);
         newBooking.setRoomid(roomId);
-        // Save the booking to get the booking ID
-        Booking savedBooking = bookingService.addBooking(newBooking);
-        for (String i: services)
-        {
-            System.out.println(i);
-        }
 
-        int i = 0;
+        // Save the booking to get the booking ID
+        if (!bookingService.availabilityCheck(newBooking)) {
+            System.out.println("not available");
+            model.addAttribute("error", "Room not available for selected dates.");
+            return "bookings"; // Return to the bookings page with an error message
+        }
+        Booking savedBooking = bookingService.addBooking(newBooking);
+        int UUID = 0;
         // Save the selected services associated with the booking ID
         if (services != null && !services.isEmpty()) {
-            for (String serviceName : services) {
+            for (int i = 0; i < services.size(); i++) {
                 ProvidedService providedService = new ProvidedService();
-                i = i + 1;
-                providedService.setId(savedBooking.getId() + i); // Use a unique ID
-                providedService.setServiceName(serviceName);
-                providedService.setPrice(1);
+                UUID = UUID + 1;
+                providedService.setId(savedBooking.getId() + "_" + UUID); // Use a unique ID
+                providedService.setServiceName(services.get(i));
+                if ("Breakfast".equals(services.get(i))) {
+                    providedService.setPrice(20);
+                } else if ("Lunch".equals(services.get(i))) {
+                    providedService.setPrice(35);
+                } else if ("VIP Lounge".equals(services.get(i))) {
+                    providedService.setPrice(100);
+                } else if ("SPA".equals(services.get(i))) {
+                    providedService.setPrice(80);
+                }
                 providedService_service.addService(providedService);
             }
         }
-
         return "redirect:/bookings";
     }
-
-
-
-
-
 
 }
