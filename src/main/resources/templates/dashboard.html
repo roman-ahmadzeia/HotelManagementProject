@@ -15,28 +15,31 @@
     <a href="/">5 Star Hotel Booking System</a>
     <a href="/">Dashboard</a>
 </div>
-<div class = "hero"></div>
+<!--<div class = "hero"></div>-->
 <!-- 396 -->
 
-<div class = "greeting">
-    <ion-icon name="person-circle-outline"></ion-icon>
-    <h1 class = "greeting">Welcome Back, Admin</h1>
 
-</div>
 <div class = "dashboard">
+    <div class = "greeting-div">
+        <ion-icon name="person-circle-outline" class = "user-icon"></ion-icon>
+        <h1 class = "greeting">Welcome Back, Admin</h1>
+    </div>
     <h1 >Dashboard</h1>
     <div class = "grid">
         <div><h3>Number of bookings</h3> <p id="display-logistics-1" th:if="${bookingCount != null}" th:text="${bookingCount}"></p></div>
         <div><h3>Revenue</h3> <p id="display-logistics-2" th:if="${revenue != null}" th:text="${revenue}"></p></div>
         <div><h3>Occupancy Rate</h3><p id="display-logistics-3" th:if="${occupancyRate != null}" th:text="${occupancyRate}+'%'"></p></div>
     </div>
+    <div class="actions">
+        <a href="/customers">View Customers</a>
+        <a href="/rooms">View Rooms</a>
+        <a href="/bookings">View Bookings</a>
+        <a href="/services">View Services</a>
+
+    </div>
 </div>
 
-<div class="actions">
-    <a href="/customers">View Customers</a>
-    <a href="/rooms">View Rooms</a>
-    <a href="/bookings">View Bookings</a>
-</div>
+
 
 <div class = "footer">
     <h1>Since 2024</h1>

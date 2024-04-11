@@ -8,12 +8,20 @@ import jakarta.persistence.*;
 public class ProvidedService {
     @Id
     private String id; // should be the booking id
+
+    private long id_s;
     private String serviceName;
     private double price;
 
     public ProvidedService() {
     }
 
+    public ProvidedService(long id_s, String serviceName, double price)
+    {
+        this.id_s = id_s;
+        this.serviceName = serviceName;
+        this.price = price;
+    }
     public ProvidedService(String id, String serviceName, double price) {
         this.id = id;
         this.serviceName = serviceName;

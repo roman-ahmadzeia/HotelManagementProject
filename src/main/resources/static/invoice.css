@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+body
+{
+    padding: 0; margin: 0;
+    background-image: url("https://www.intechnic.com/hubfs/Blog/Featured%20Images/Best%20Hotel%20Website%20Designs.jpg");
+}
+.header
+{
+    padding: 1% 5% 1% 5%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+.header a
+{
+    text-align: center;
+    color: #b4a044;
+    font-family: "Playfair Display";
+    font-size: 2.2rem; font-weight: 600;
+    text-decoration: none;
+}
+
+.hero
+{
+    margin-top: 0; padding: 0;
+    background-image: url("https://assets-global.website-files.com/5c6d6c45eaa55f57c6367749/65046bf150d1abb7e5911702_x-65046bcfdc4f0.webp");
+    background-size: cover;
+    height: 500px;
+}
+.hero h1
+{
+    justify-content: center;
+    color: #b4a044;
+    background-color: rgba(75, 75, 75, 0.53);
+    width: 30%;
+    font-family: "Playfair Display";
+}
+.greeting
+{
+    display:flex; gap: 2%;
+    justify-content: center; text-align: center;
+    font-size: 3rem;
+    color: #b4a044;
+    font-family: "Playfair Display";
+}
+.greeting ion-icon
+{
+    margin-top: 3%;
+}
+
+.dashboard
+{
+    font-family: "Playfair Display";
+    color: black;
+    justify-content: center;
+    text-align: center;
+}
+
+.dashboard h1
+{
+    font-size: 3rem;
+}
+.grid
+{
+    grid-column: auto;
+    grid-row: 1;
+    display: flex;
+    justify-content: space-evenly;
+    height: 20%;
+}
+.grid div
+{
+    cursor:pointer;
+    width: 20%;
+    font-size: 1rem;
+    border-style: solid;
+    border-color: #b4a044;
+    border-radius: 15%/50%;
+    border-width: 5px;
+    transition: all 0.5s;
+}
+.grid div:hover
+{
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
+}
+.grid div h3
+{
+    justify-content: center; text-align: center;
+}
+
+.actions
+{
+    margin-top: 5%;
+    width: 100%;
+    justify-content: center; text-align: center;
+
+}
+.actions a
+{
+    border-style: solid;
+    border-color: #b4a044;
+    border-radius: 15%/50%;
+    border-width: 5px;
+    padding: 1%; margin: 0 7.5% 0 7.5%;
+    font-size: 2rem; font-family: "Playfair Display";
+    text-decoration: none;
+    color: white;
+    background-color: black;
+}
+.footer
+{
+    margin-top: 10%;
+    background-color: black;
+    padding: 3%;
+}
+.footer h1
+{
+    margin: 5% 2% 0% 2%;
+    color:white;
+    font-size:1.5rem; font-family: "Playfair Display";
+    justify-content: center;
+    text-align: center;
+}
+.invoice
+{
+    background-color: rgba(0, 0, 0, 0.46);
+    margin: 2%;
+    padding: 0 0 2% 0;
+    border-style: solid;
+    border-width: 2px; border-color: black;
+    justify-content: center;
+    text-align: center;
+    font-family: "Playfair Display";
+    font-size: 1.7rem; color: white;
+}
+.invoice h1
+{
+    color: #b4a044;
+}

@@ -75,6 +75,7 @@ public class BookingController {
         }
         Booking savedBooking = bookingService.addBooking(newBooking);
         int UUID = 0;
+        double service_cost = 0;
         // Save the selected services associated with the booking ID
         if (services != null && !services.isEmpty()) {
             for (int i = 0; i < services.size(); i++) {
@@ -84,17 +85,32 @@ public class BookingController {
                 providedService.setServiceName(services.get(i));
                 if ("Breakfast".equals(services.get(i))) {
                     providedService.setPrice(20);
+                    service_cost = service_cost + 20;
                 } else if ("Lunch".equals(services.get(i))) {
                     providedService.setPrice(35);
+                    service_cost = service_cost + 35;
+
                 } else if ("VIP Lounge".equals(services.get(i))) {
                     providedService.setPrice(100);
+                    service_cost = service_cost + 100;
+
                 } else if ("SPA".equals(services.get(i))) {
                     providedService.setPrice(80);
+                    service_cost = service_cost + 80;
+
                 }
                 providedService_service.addService(providedService);
             }
         }
-        return "redirect:/bookings";
+        model.addAttribute("startDate", savedBooking.getStartDate());
+        model.addAttribute("endDate", savedBooking.getEndDate());
+
+        model.addAttribute("customerName", customerService.getCustomerById(customerId).get().getName());
+        model.addAttribute("roomNumber", roomService.getRoomById(roomId).getRoomNumber());
+        model.addAttribute("totalCost", bookingService.roomPriceTotal(savedBooking) + service_cost);
+
+        return "invoice";
+
     }
 
 }

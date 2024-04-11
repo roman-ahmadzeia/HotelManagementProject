@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <link rel="stylesheet" href="/invoice.css">
+</head>
+<body>
+
+<div class="header">
+  <a href="/">5 Star Hotel Booking System</a>
+  <a href="/">Dashboard</a>
+</div>
+
+<div class="invoice">
+  <h1>Invoice</h1>
+  <p>Duration: From <span th:text="${startDate}"></span> To <span th:text="${endDate}"></span></p>
+  <p>Customer Name: <span th:text="${customerName}"></span></p>
+  <p>Room Number: <span th:text="${roomNumber}"></span></p>
+  <p>Total Cost: $<span th:text="${totalCost}"></span></p>
+</div>
+
+</body>
+</html>
