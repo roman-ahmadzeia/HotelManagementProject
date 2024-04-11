@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Dashboard</title>
+  <link rel="stylesheet" href="/tableForms.css">
+  <link rel="stylesheet" href="/styles.css">
   <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/891868257475260497/1225378531966582784/hotelicon.png?ex=6620e9b0&is=660e74b0&hm=70b39270560a4a8522ba6374b3c3dc43cdd932db3f941aa6e7668c39dc45b221&">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -16,24 +18,6 @@
 
 <div class="container">
   <h1>Services</h1>
-  <table>
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Service Name</th>
-      <th>Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="service : ${services}">
-      <td th:text="${service.id}"></td>
-      <td th:text="${service.serviceName}"></td>
-      <td th:text="${service.price}"></td>
-    </tr>
-    </tbody>
-  </table>
-
-  <h2>Add New Service</h2>
   <form method="post" action="/api/services/addService">
     <label for="serviceName">Service Name:</label>
     <input type="text" id="serviceName" name="serviceName" required><br>
@@ -43,7 +27,26 @@
 
     <button type="submit">Add Service</button>
   </form>
-</div>
+  <h2>Add New Service</h2>
+  <table>
 
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Service Name</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="service : ${services}">
+      <td th:text="${service.id}"></td>
+      <td th:text="${service.serviceName}"></td>
+      <td th:text="${service.price}"></td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
 </body>
 </html>
