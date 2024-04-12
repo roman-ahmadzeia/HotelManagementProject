@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
-body
-{
+body {
     padding: 0; margin: 0;
     background-image: url("https://www.intechnic.com/hubfs/Blog/Featured%20Images/Best%20Hotel%20Website%20Designs.jpg");
+    font-family: "Playfair Display", serif;
 }
-.header
-{
+
+.header {
     padding: 1% 5% 1% 5%;
     margin: 0;
     display: flex;
@@ -15,138 +15,197 @@ body
     color: white;
     text-decoration: none;
 }
- .header a
-{
+
+.header a {
     text-align: center;
     color: #b4a044;
-    font-family: "Playfair Display";
     font-size: 2.2rem; font-weight: 600;
     text-decoration: none;
 }
 
-  .hero
-  {
-      margin-top: 0; padding: 0;
-      background-size: cover;
-  }
-  .hero h1
-  {
-      justify-content: center;
-      color: #b4a044;
-      background-color: rgba(75, 75, 75, 0.53);
-      width: 30%;
-      font-family: "Playfair Display";
-  }
-  .greeting
-  {
-      display:flex; gap: 2%;
-      justify-content: center; text-align: center;
-      font-size: 3rem;
-      color: #b4a044;
-      font-family: "Playfair Display";
-  }
-  .greeting ion-icon
-  {
-      margin-top: 3%;
-  }
+.greeting {
+    display: flex; gap: 2%;
+    justify-content: center; text-align: center;
+    font-size: 3rem;
+    color: #b4a044;
+}
 
-  .dashboard
-  {
-      background-color: rgba(0, 0, 0, 0.37);
-      margin-top: 0;
-      font-family: "Playfair Display";
-      color: white;
-      justify-content: center;
-      text-align: center;
-  }
-  .user-icon{
-      padding-top: 30px;
-      padding-right: 10px;
-      font-size: 4rem;
-      color: #b4a044;
-  }
-.greeting-div
-{
+.greeting ion-icon {
+    margin-top: 3%;
+}
+
+.dashboard {
+    background-color: rgba(0, 0, 0, 0.37);
+    margin-top: 0;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.user-icon {
+    padding-top: 30px;
+    padding-right: 10px;
+    font-size: 4rem;
+    color: #b4a044;
+}
+
+.greeting-div {
     display: flex;
     justify-content: center;
     text-align: center;
 }
 
-  .dashboard h1
-  {
+.dashboard h1 {
     font-size: 3rem;
-  }
-  .grid
-  {
-      grid-column: auto;
-      grid-row: 1;
-      display: flex;
-      justify-content: space-evenly;
-      height: 20%;
-  }
-  .grid div
-  {
-      cursor:pointer;
-      width: 20%;
-      font-size: 1rem;
-      border-style: solid;
-      border-color: #b4a044;
-      border-radius: 15%/50%;
-      border-width: 5px;
-      transition: all 0.5s;
-  }
-  .grid div:hover
-  {
-      background-color: black;
-      color: white;
-      transform: scale(1.1);
-  }
-  .grid div h3
-  {
-    justify-content: center; text-align: center;
-  }
+}
 
-  .actions
-  {
-      margin-top: 5%;
-      width: 100%; height: 500px;
-      justify-content: center; text-align: center;
+.grid {
+    display: flex;
+    justify-content: space-evenly;
+    height: 20%;
+}
 
-  }
-  .actions a
-  {
-      border-style: solid;
-      border-color: #b4a044;
-      border-radius: 15%/50%;
-      border-width: 5px;
-      padding: 1%; margin: 0 3% 0 3%;
-      font-size: 2rem; font-family: "Playfair Display";
-      text-decoration: none;
-      color: white;
-      background-color: black;
-  }
-  .footer
-  {
-      margin-top: -2%;
-      background-color: black;
-      padding: 3%;
-  }
-  .footer h1
-  {
-      margin: 5% 2% 0% 2%;
-      color:white;
-      font-size:1.5rem; font-family: "Playfair Display";
-      justify-content: center;
-      text-align: center;
-  }
-  .invoice
-  {
-      margin: 2%;
-      padding: 0 0 2% 0;
-      border-style: solid;
-      border-width: 2px; border-color: black;
-      justify-content: center;
-      text-align: center;
-      font-family: "Playfair Display";
-      font-size: 1.7rem;
-  }
+.grid div {
+    cursor: pointer;
+    width: 20%;
+    font-size: 1rem;
+    border-style: solid;
+    border-color: #b4a044;
+    border-radius: 15%/50%;
+    border-width: 5px;
+    transition: all 0.5s;
+}
+
+.grid div:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
+}
+
+/*.actions {*/
+/*    margin-top: 5%;*/
+/*    width: 100%; height: 500px;*/
+/*    justify-content: center; text-align: center;*/
+/*}*/
+
+/*.actions a {*/
+/*    border-style: solid;*/
+/*    border-color: #b4a044;*/
+/*    border-radius: 15%/50%;*/
+/*    border-width: 5px;*/
+/*    padding: 1%; margin: 0 3% 0 3%;*/
+/*    font-size: 2rem;*/
+/*    text-decoration: none;*/
+/*    color: white;*/
+/*    background-color: black;*/
+/*}*/
+
+
+
+
+/*good*/
+.actions {
+    margin-top: 5%;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.actions div {
+    cursor: pointer;
+    width: 20%;
+    font-size: 1rem;
+    border-style: solid;
+    border-color: #b4a044;
+    border-radius: 15%/50%;
+    border-width: 5px;
+    background-color: black;
+    padding: 1%;
+    margin: 0 3% 0 3%;
+}
+
+.actions a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.footer
+{
+    margin-top: 4%;
+    background-color: black;
+    padding: 3%;
+}
+
+.footer h1
+{
+    margin: 5% 2% 0% 2%;
+    color:white;
+    font-size:1.5rem; font-family: "Playfair Display";
+    justify-content: center;
+    text-align: center;
+}
+
+@media (max-width: 430px) {
+
+    .header {
+        flex-direction: column;
+        padding: 1% 2%;
+        height: 40px;
+    }
+
+    .header a {
+        font-size: 1.5rem;
+    }
+
+    .greeting {
+        font-size: 2rem;
+    }
+
+    .user-icon {
+        display: none;
+    }
+
+    .moblie_spacing{
+        margin-top: -10px;
+    }
+
+    .grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid div {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .grid div:hover {
+        background-color: inherit;
+        color: inherit;
+        transform: none;
+    }
+
+    .actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .actions div {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .footer h1 {
+        font-size: 1rem;
+    }
+
+    .dashboard_header {
+        display: none;
+    }
+}

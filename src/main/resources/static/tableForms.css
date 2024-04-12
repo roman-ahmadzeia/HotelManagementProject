@@ -97,3 +97,12 @@ th {
     color: red;  font-family: "Playfair Display";
     font-size: 1.5rem;
 }
+
+@media (max-width: 430px) {
+
+    img
+    {
+        width: 375px; height: auto;
+    }
+}
+
