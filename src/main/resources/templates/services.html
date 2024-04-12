@@ -20,7 +20,11 @@
 
 <div class="container">
   <h1>Services</h1>
-  <form method="post" action="/api/services/addService">
+  <form method="post" action="/addService">
+    <label for="id">id:</label>
+    <input type="text" id="id" name="id" required><br>
+
+
     <label for="serviceName">Service Name:</label>
     <input type="text" id="serviceName" name="serviceName" required><br>
 

@@ -27,8 +27,8 @@ public class ProvidedServiceController {
 
 
     @PostMapping("/addService")
-    public void addService(@ModelAttribute("newService") ProvidedService serv)
-    {
+    public String addService(@ModelAttribute("newService") ProvidedService serv) {
         service.addService(serv);
+        return "redirect:/services";
     }
 }
