@@ -35,6 +35,7 @@ body {
 }
 
 .dashboard {
+    flex-grow: 1;
     background-color: rgba(0, 0, 0, 0.37);
     margin-top: 0;
     color: white;
@@ -111,18 +112,19 @@ body {
 }
 
 
-
 .footer {
-    margin-top: 9.6%; /* Adjusted margin */
     background-color: black;
-    padding: 1%; /* Adjusted padding */
+    color: white;
+    padding: 0.5%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer h1 {
-    margin: 2% 2% 0% 2%; /* Adjusted margin */
+    margin: 2% 2% 0% 2%;
     color: white;
-    font-size: 1rem; /* Adjusted font size */
-    font-family: "Playfair Display";
+    font-size: 1rem;
     justify-content: center;
     text-align: center;
 }
