@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -55,12 +56,15 @@ public class BookingController {
                              @RequestParam(value = "services", required = false) List<String> services,
                              @RequestParam("startDate") String startDateStr,
                              @RequestParam("endDate") String endDateStr,
-                             Model model){
+                             Model model, RedirectAttributes redirectAttributes){
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate startDate = LocalDate.parse(startDateStr, formatter);
         LocalDate endDate = LocalDate.parse(endDateStr, formatter);
-
+        if (endDate.isBefore(startDate)) {
+            redirectAttributes.addFlashAttribute("error", "End date cannot be before start date.");
+            return "redirect:/bookings"; // Redirect to the bookings page with an error message
+        }
         newBooking.setStartDate(startDate);
         newBooking.setEndDate(endDate);
 
